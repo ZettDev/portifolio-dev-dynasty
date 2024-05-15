@@ -1,45 +1,51 @@
 import { useState } from 'react';
 import { BookOpenIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import logo from "../../../assets/logo.png"
 
 export function Navbar() {
     const Links = [
-        { name: "HOME", link: "/" },
-        { name: "SERVICE", link: "/" },
-        { name: "ABOUT", link: "/" },
-        { name: "CONTACT", link: "/" },
+        { name: "Sobre", link: "/" },
+        { name: "Habilidades", link: "/" },
+        { name: "Projetos", link: "/" },
+        { name: "Equipe", link: "/" },
     ];
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className='shadow-md w-full fixed top-0 left-0'>
-            <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+        <nav className='shadow-md w-full fixed top-0 left-0 font-viet'>
+            <div className='md:flex items-center justify-between bg-china-black py-6 md:px-10 px-7'>
                 {/* logo section */}
                 <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
-                    <BookOpenIcon className='w-7 h-7 text-blue-600' />
-                    <span>Inscribe</span>
+                    <img src={logo} />
+                    
                 </div>
                 {/* Menu icon */}
                 <div onClick={() => setOpen(!open)} className='absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7'>
                     {
-                        open ? <XMarkIcon /> : <Bars3Icon />
+                        open ? <XMarkIcon color="white"/> : <Bars3Icon color="white"/>
                     }
                 </div>
                 {/* link items */}
-                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
+                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-gray md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
                     {
                         Links.map((link) => (
-                            <li className='md:ml-8 md:my-0 my-7 font-semibold'>
-                                <Link to={link.link} className='text-gray-800 hover:text-blue-400 duration-500'>{link.name}</Link>
+                            <li className='md:ml-8 md:my-0 my-7 font-extralight text-2xl'>
+                                <Link to={link.link} className='text-white hover:text-yellow-400 duration-500'>{link.name}</Link>
                             </li>))
                     }
-                    <button className='btn bg-blue-600 text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static'>
-                        <Link to={'/login'}>
-                            Get Started!
-                        </Link>
-                    </button>
+                    <button className='btn bg-black text-topaz md:ml-8 font-light text-2xl rounded-2xl duration-500 md:static md:hidden py-3 px-6'>
+                    <Link to={'/login'}>
+                        Contato
+                    </Link>
+                </button>
                 </ul>
                 {/* button */}
+                <button className='btn bg-black text-topaz md:ml-8 font-light text-2xl rounded-2xl duration-500 md:static max-md:hidden py-3 px-6'>
+                    <Link to={'/login'}>
+                        Contato
+                    </Link>
+                </button>
             </div>
         </nav>
     );

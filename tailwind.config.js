@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+      'viet': ["Be Vietnam Pro"],
+      },
+      colors: {
+        'china-black': '#161616',
+        'raisin-black': '#242424',
+        'topaz': '#FBC779'
+      },
+    }
   },
   plugins: [],
 }
