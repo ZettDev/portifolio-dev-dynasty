@@ -12,7 +12,8 @@ export default {
       colors: {
         'china-black': '#161616',
         'raisin-black': '#242424',
-        'topaz': '#FBC779'
+        'topaz': '#F06B41',
+        'dark-topaz': '#B03D18'
       },
     }
   },
